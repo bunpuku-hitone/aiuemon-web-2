@@ -114,7 +114,7 @@ def index():
     return render_template(
         "index.html",
         count=count,
-        reply=reply,
+        response_text=reply,
         date_text=get_date_text(),
         user_text=user_text,
         today_word=today_word
