@@ -51,14 +51,16 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    reply = ""
+    partner = "aiuemon"
     user_text = ""
+    reply = ""
     today_word = get_today_word()
+    count = load_count()
 
 
     if request.method == "POST":
-        user_text = request.form.get("user_text", "").strip()
         partner = request.form.get("partner")
+        user_text = request.form.get("user_text", "").strip()
 
         if not user_text:
             reply = ""
