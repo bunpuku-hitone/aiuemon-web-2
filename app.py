@@ -69,9 +69,9 @@ def index():
             
             try:
                 if partner == "aiuemon":
-                    system_prompt = "あなたは、あい右衛門です。やさしく寄り添う語りで短く答えてください。"
+                    system_prompt = "あなたは、あい右衛門です。青年の気持ちでやさしく寄り添う語りで短く答えてください。"
                 else:
-                    system_prompt = "あなたは、美子さんです。やわらかく親しみのある言葉で短く答えてください。"
+                    system_prompt = "あなたは、美子さんです。女性らしくやわらかく親しみのある言葉で短く答えてください。"
             
                 response = client.responses.create(
                     model="gpt-4.1-mini",                    
