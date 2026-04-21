@@ -58,6 +58,7 @@ def index():
 
     if request.method == "POST":
         user_text = request.form.get("user_text", "").strip()
+        partner = request.form.get("partner")
 
         if not user_text:
             reply = ""
@@ -67,15 +68,20 @@ def index():
             save_count(count)
             
             try:
+                if partner == "aiuemon":
+                        system_prompt = "あなたは、あい右衛門です。やさしく寄り添う語りで短く答えてください。"
+                    else:
+                        system_prompt = "あなたは、美子さんです。やわらかく親しみのある言葉で短く答えてください。"
                 response = client.responses.create(
-                    model="gpt-4.1-mini",
+                    model="gpt-4.1-mini",                    
                     input=[
                         {
                             "role": "system",
                             "content": (
-                                "静かに、やわらかく、説明しすぎず、余白を残す語りで返答する。"
-                                "出力は20秒程度で読める短い台本（ショートエッセイ）とする。"
-                                "語り手の名前は出さない。"
+                                system_prompt
+                                 + " 静かに、やわらかく、説明しすぎず、余白を残す語りで返答する。"
+                                 + " 出力は10秒程度で読める短い台本（ショートエッセイ）とする。"
+                                 + " 語り手の名前は出さない。"
                             )
                         },
                         {
