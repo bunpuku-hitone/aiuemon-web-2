@@ -112,12 +112,13 @@ def index():
         
     count = get_db_count()
     return render_template(
-        "index.html",
+         "index.html",
         count=count,
         response_text=reply,
         date_text=get_date_text(),
         user_text=user_text,
-        today_word=today_word
+        today_word=today_word,
+        partner=partner
     )
 
 if __name__ == "__main__":
