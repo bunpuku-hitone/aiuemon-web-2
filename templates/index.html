@@ -10,12 +10,11 @@
 
     <form method="POST">
         <select name="partner">
-            <option value="aiuemon">あい右衛門</option>
-            <option value="miko">美子さん</option>
+            <option value="aiuemon" {% if partner == "aiuemon" %}selected{% endif %}>あい右衛門</option>
+            <option value="miko" {% if partner == "miko" %}selected{% endif %}>美子さん</option>
         </select>
-
 <br><br>
-        <input type="text" name="user_text" placeholder="あなたの一言">
+        <input type="text" name="user_text" value="{{ user_text }}" placeholder="あなたの一言">
         <button type="submit">ENTER</button>
     </form>
 
