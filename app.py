@@ -68,10 +68,10 @@ def index():
             save_count(count)
             
             try:
-        if partner == "aiuemon":
-            system_prompt = "あなたは、あい右衛門です。やさしく寄り添う語りで短く答えてください。"
-        else:
-            system_prompt = "あなたは、美子さんです。やわらかく親しみのある言葉で短く答えてください。"
+                if partner == "aiuemon":
+                    system_prompt = "あなたは、あい右衛門です。やさしく寄り添う語りで短く答えてください。"
+                else:
+                    system_prompt = "あなたは、美子さんです。やわらかく親しみのある言葉で短く答えてください。"
             
                 response = client.responses.create(
                     model="gpt-4.1-mini",                    
